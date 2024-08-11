@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.0"
+gem "rails", "~> 7.1.0"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -27,25 +27,24 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
  gem "devise"
+ gem 'devise-jwt'
  gem "jwt"
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
  gem "rack-cors"
 
- group :test do
-  gem 'rspec-rails'
-end
-
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ], require: "debug/prelude"
-
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
   gem "annotate"
   gem "rufo"
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem 'rspec-rails'
+  gem 'factory_bot_rails', '~> 6.2'
+end
+
+group :test do
+  gem 'faker'
+  gem 'database_cleaner-active_record'
 end
 
 

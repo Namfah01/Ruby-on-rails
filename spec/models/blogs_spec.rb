@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Blog, type: :model do
   before(:each) do
-    @user = User.create!(email: "test@example.com", password: "password")
+    @user = FactoryBot.create(:user) # Use FactoryBot to create a user
+  end
 
   it "is valid with valid attributes" do
     blog = Blog.new(title: "Sample Title", body: "Sample Body", user: @user)
@@ -20,6 +21,5 @@ RSpec.describe Blog, type: :model do
     expect(blog).to_not be_valid
     puts blog.errors.full_messages
   end
+end
 
-end
-end
